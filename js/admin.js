@@ -75,7 +75,7 @@ $("#restoreFile").onchange=async e=>{
   e.target.value="";
 };
 $("#discard").onclick=async()=>{if(confirm("Discard your draft and go back to the prompts currently in js/data.js?")){await idbDel(IDB_KEY);location.reload()}};
-$("#lock").onclick=()=>{sessionStorage.removeItem("ph_admin_ok");location.reload()};
+$("#lock").onclick=()=>{location.reload()};
 draw();
 }
 
@@ -86,8 +86,7 @@ draw();
 (function gate(){
   const g=s=>document.querySelector(s);
   const gm=t=>{g("#gMsg").textContent=t};
-  const unlock=()=>{sessionStorage.setItem("ph_admin_ok","1");g("#gate").classList.add("hide");g("#app").classList.remove("hide");startAdmin()};
-  if(sessionStorage.getItem("ph_admin_ok")==="1"){unlock();return}
+  const unlock=()=>{g("#gate").classList.add("hide");g("#app").classList.remove("hide");startAdmin()};
   const SALT="prompthub:v1:";
   async function sha(s){if(!(window.crypto&&crypto.subtle))throw new Error("nocrypto");const b=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(SALT+s));return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,"0")).join("")}
   const go=async()=>{
