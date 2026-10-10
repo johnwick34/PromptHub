@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>PromptHub Admin</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header><div class="wrap nav">
+  <a class="logo" href="index.html"><i>✦</i>PromptHub Admin</a>
+  <div class="row2"><a class="btn alt" href="index.html?preview" target="_blank">Preview draft</a><a class="btn alt" href="index.html">View site</a></div>
+</div></header>
+<main id="gate" class="wrap" style="padding-top:60px;max-width:460px"><div class="panel">
+  <h2>Admin sign in</h2><p class="mut" style="margin:0">Enter the admin email and phone number to continue.</p>
+  <label for="gEmail">Admin email</label><input id="gEmail" type="email" autocomplete="username" inputmode="email">
+  <label for="gPhone">Admin phone</label><input id="gPhone" type="tel" autocomplete="tel" inputmode="tel" placeholder="01XXXXXXXXX">
+  <button class="btn" id="gGo" style="border:0">Sign in</button><p class="mut" id="gMsg" role="alert" style="margin:0"></p>
+</div></main>
+<main id="app" class="wrap hide" style="padding-top:32px;padding-bottom:90px">
+  <h1 style="font-size:2rem;letter-spacing:-.03em;margin:0 0 8px">Manage prompts</h1>
+  <p class="sub" style="max-width:64ch;margin-bottom:16px">This page prepares your content. It cannot change the live site by itself: download <code>data.js</code> and replace <code>js/data.js</code> in your project. Your draft is saved on this device (IndexedDB) as you work — use <b>Backup draft</b> to keep an external copy too.</p>
+  <ol class="how"><li>Add or edit prompts</li><li>Download data.js</li><li>Replace js/data.js, then redeploy</li></ol>
+
+  <div class="panel" style="margin-top:18px">
+    <div class="row2">
+      <button class="btn" id="dl" style="border:0">Download data.js</button>
+      <button class="btn alt" id="backup">Backup draft (.json)</button>
+      <button class="btn alt" id="restoreBtn">Restore backup</button>
+      <input type="file" id="restoreFile" accept="application/json" class="hide">
+      <button class="btn alt" id="discard">Discard draft</button>
+      <button class="btn alt" id="lock">Lock</button>
+    </div>
+    <p class="mut" style="margin:0">Download data.js = publish to your live site. Backup draft = a private .json safety copy of your work-in-progress (including draft images), separate from the site itself.</p>
+    <p class="mut" id="st" role="status" style="margin:0"></p>
+  </div>
+
+  <div class="agrid">
+    <div class="panel">
+      <h2 id="formTitle">Add a prompt</h2>
+      <label for="aTitle">Title</label><input id="aTitle" placeholder="Cinematic Rain Portrait">
+      <label for="aCat">Category</label><select id="aCat"></select>
+      <label for="aBadge">Badge</label><select id="aBadge"><option value="">None</option><option>TRENDING</option><option>NEW</option><option>EDITOR'S PICK</option></select>
+      <label for="aTags">Tags (comma separated)</label><input id="aTags" placeholder="portrait, rain, photography">
+      <label for="aPrompt">Full prompt</label><textarea id="aPrompt" rows="6" placeholder="Paste the complete prompt here"></textarea>
+      <label for="aFile">Reference image (upload)</label><input id="aFile" type="file" accept="image/*">
+      <img id="aPrev" class="hide" alt="Image preview">
+      <label for="aPath">Or an image path from your images folder (optional)</label><input id="aPath" placeholder="images/rain-portrait.jpg">
+      <div class="row2"><button class="copy" id="save" style="padding:12px 20px;margin:0">Add prompt</button><button class="btn alt hide" id="cancel">Cancel edit</button></div>
+    </div>
+    <div class="panel">
+      <h2>Contact and social links</h2>
+      <label for="cMail">Email for project enquiries</label><input id="cMail" type="email" placeholder="you@example.com">
+      <label for="cWa">WhatsApp number with country code (optional)</label><input id="cWa" placeholder="8801XXXXXXXXX">
+      <div id="socialInputs" style="display:grid;gap:10px"></div>
+    </div>
+    <div class="panel" style="grid-column:1/-1">
+      <h2>All prompts (<span id="cnt"></span>)</h2>
+      <div id="list" style="display:grid;gap:8px"></div>
+    </div>
+  </div>
+</main>
+<script src="js/data.js"></script>
+<script src="js/core.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>
