@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>PromptHub — Free AI Image Prompt Library</title>
+<meta name="description" content="Discover, copy and create. Browse free AI image prompts and copy them in one click for ChatGPT, Gemini, Midjourney, Flux and more.">
+<meta name="theme-color" content="#0B0B0B">
+<meta property="og:title" content="PromptHub — Free AI Image Prompt Library">
+<meta property="og:description" content="Discover. Copy. Create. Free AI image prompts, one click to copy.">
+<meta property="og:type" content="website">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header><div class="wrap nav">
+  <a class="logo" href="#home" aria-label="PromptHub home"><i>✦</i>PromptHub</a>
+  <nav class="links" id="links" aria-label="Main">
+    <a href="#home">Home</a><a href="#explore">Explore</a><a href="#categories">Categories</a><a href="#about">About</a><a href="#developers">Developers</a><a href="#hire">Hire me</a>
+  </nav>
+  <div style="display:flex;gap:8px">
+    <button class="icon-btn" id="searchBtn" aria-label="Search prompts"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button>
+    <button class="icon-btn burger" id="burger" aria-label="Menu" aria-expanded="false"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  </div>
+</div></header>
+
+<main>
+<section class="hero" id="home"><div class="wrap hero-grid">
+  <div>
+    <h1><span>Discover.</span><span>Copy.</span><span class="r">Create.</span></h1>
+    <p class="lead">Find inspiring AI image prompts, copy them instantly, and create your own version anywhere.</p>
+    <div class="sw"><label class="search" for="q"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a8a8a8" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="q" type="search" placeholder="Search AI image prompts…" autocomplete="off"><button type="button" id="go">Search</button></label><div class="sug hide" id="sug" role="listbox"></div></div>
+    <div class="chips" id="heroChips" role="group" aria-label="Popular categories"></div>
+    <p class="lbl">Not sure what you want? Pick a vibe.</p><div class="chips vibes" id="vibes"></div>
+  </div>
+  <div class="collage" id="collage" aria-hidden="true"></div>
+</div></section>
+
+<section id="trending" style="padding-top:24px"><div class="wrap">
+  <h2>🔥 Trending Prompts</h2><p class="sub">What creators are copying right now.</p>
+  <div class="grid" id="trendGrid"></div>
+</div></section>
+
+<section id="explore" style="padding-top:24px"><div class="wrap">
+  <h2>Explore prompts</h2><div class="bar"><p class="sub" id="count" style="margin:0"></p><select id="sort" aria-label="Sort prompts"><option value="">Best match</option><option value="new">Newest</option><option value="trend">Trending first</option></select></div>
+  <div id="categories" class="filters" role="group" aria-label="Filter by category"></div>
+  <div class="grid" id="grid"></div>
+  <div class="empty hide" id="empty"><h3>No prompts found</h3><p>Try another keyword or explore a category.</p></div>
+  <div class="strip"><div class="av">RB</div><div><b>Built by Razaul Ibna Bari</b><br><span class="mut">Web developer. Need a website or web app like this one?</span></div><a class="btn" href="#hire">Hire me</a></div>
+</div></section>
+
+<section id="about" class="about"><div class="wrap">
+  <h2>What is PromptHub?</h2>
+  <p>PromptHub is a free collection of AI image prompts designed to help creators discover visual ideas and experiment with AI image generation.</p>
+  <h2 style="margin-top:36px">How it works</h2>
+  <div class="steps">
+    <div class="step"><b>1</b><h3>Discover</h3><p>Find an image you like.</p></div>
+    <div class="step"><b>2</b><h3>Copy</h3><p>Click the Copy Prompt button.</p></div>
+    <div class="step"><b>3</b><h3>Create</h3><p>Paste the prompt into your favorite AI image generator and customize it.</p></div>
+  </div>
+</div></section>
+
+<section id="developers"><div class="wrap">
+  <div class="dev">
+    <div class="avatar" role="img" aria-label="Developer avatar placeholder">RB</div>
+    <div>
+      <h2>Razaul Ibna Bari</h2>
+      <p class="role">CSE Student • Web Developer • Cybersecurity Enthusiast • Photographer</p>
+      <p style="color:#cfcfcf;max-width:60ch">I build fast, practical web projects and care about clean interfaces and safe code. PromptHub was created to make AI image prompting easier for everyone. Instead of searching through social media posts to find prompts, users can discover inspiring references, copy the prompt instantly, and experiment with it in their preferred AI tools.</p>
+      <div class="socials" id="socials"></div>
+      <a class="btn" data-mail href="mailto:hello@example.com">Get in Touch</a>
+    </div>
+  </div>
+</div></section>
+<section id="hire" style="padding-top:8px"><div class="wrap"><div class="hire">
+  <h2>Need a website or web app?</h2><p class="sub" style="margin-bottom:18px;max-width:56ch">PromptHub was built by Razaul Ibna Bari. Hire him to build yours: fast, responsive and secure.</p>
+  <div class="svc"><span>Business &amp; portfolio websites</span><span>Web apps &amp; dashboards</span><span>Landing pages</span><span>Security-minded builds</span></div>
+  <div class="cta"><a class="btn" data-mail href="mailto:hello@example.com?subject=Web%20development%20project">Start a project</a><a class="btn ghost hide" data-wa target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a></div>
+</div></div></section>
+</main>
+
+<footer><div class="wrap">
+  <div class="foot">
+    <div><div class="logo"><i>✦</i>PromptHub</div><p style="color:var(--mut);margin:8px 0 0">Discover. Copy. Create.</p></div>
+    <nav aria-label="Footer"><a href="#home">Home</a><a href="#explore">Explore</a><a href="#categories">Categories</a><a href="#about">About</a><a href="#developers">Developers</a></nav>
+    <div class="socials" id="fsocials" style="margin:0"></div>
+  </div>
+  <div class="small">© 2026 PromptHub. Built for AI creators.<br>Made with ❤️ by Razaul Ibna Bari &nbsp; <a href="admin.html" style="opacity:.6">Admin</a></div>
+</div></footer>
+
+<a class="fab" href="#hire">💼 Hire the developer</a>
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="mTitle"><div class="sheet" id="sheet"></div></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.112.3"></script>
+<script src="js/supabase-config.js"></script>
+<script src="js/data.js"></script>
+<script src="js/core.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
