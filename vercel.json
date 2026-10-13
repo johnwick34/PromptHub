@@ -1,0 +1,11 @@
+{
+  "rewrites": [
+    { "source": "/p/:slug", "destination": "/api/page?type=p&slug=:slug" },
+    { "source": "/c/:slug", "destination": "/api/page?type=c&slug=:slug" },
+    { "source": "/sitemap.xml", "destination": "/api/sitemap" },
+    { "source": "/robots.txt", "destination": "/api/sitemap?robots=1" }
+  ],
+  "functions": {
+    "api/page.js": { "includeFiles": "index.html" }
+  }
+}
